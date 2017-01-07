@@ -23,20 +23,27 @@ package body erastotenes is
         end loop;
 	end;
 
-    procedure wyswietl(tab: in TablicaWsk; tylkoPierwsze: in Boolean) is 
-    begin
-        for i in Long_Long_Integer range 1..N loop
+        procedure wyswietl(tab: in TablicaWsk; tylkoPierwsze: in Boolean; max: in Integer) is 
+            counter,range_t : Integer := 0;
+        begin
+            if (Long_Long_Integer(max) < N) then range_t := max;
+            else range_t := Integer(N);
+            end if;
+            Put_Line("Liczby pierwsze mniejsze niż" & Integer'Image(range_t));
+        for i in Long_Long_Integer range 1..Long_Long_Integer(range_t) loop
             if (tylkoPierwsze and then (tab(i) = pierwsza or else tab(i) = nieodwiedzona)) 
                or else not tylkoPierwsze then
                 if (tab(i) = nieodwiedzona) then
                     tab(i) := pierwsza;
                 end if;
-                Put(Long_Long_Integer'Image(i));
-                Put(": ");
-                Put(Rodzaj'image(tab(i)));
-                Put_Line(" ");
+                Put(Long_Long_Integer'Image(i) & " ");
+                if ((counter mod 20) = 19) then
+                    Put_Line(" ");                  
+                end if;
+                counter := counter + 1;
             end if;
         end loop;
+        Put_Line("");
         Put_Line("---------------------------");
     end;
 

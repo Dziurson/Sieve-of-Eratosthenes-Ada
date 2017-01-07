@@ -37,6 +37,7 @@ begin
 		Put_Line(Character'Val(13) & "Wykonanie asynchroniczne v2 dla" & Integer'Image(i) & " wątków -" & Integer'Image(iloscProb) & " pomiarów: " & Integer'Image(Integer(suma / Float(IloscProb) * 1000.0)) & " ms.");
 
 		Put_Line("------------------------");
-	end loop;
+        end loop;
+        wyswietl(tab,true,10000);
 	
 end main;

@@ -9,7 +9,7 @@ package erastotenes is
 
 	procedure inicjuj(tab: in out TablicaWsk);
 
-	procedure wyswietl(tab: in TablicaWsk; tylkoPierwsze: in Boolean);
+	procedure wyswietl(tab: in TablicaWsk; tylkoPierwsze: in Boolean; max: in Integer);
 
 	procedure policz(tab: in out TablicaWsk);
 
